@@ -3,6 +3,8 @@
 Clojure-pymorphy wraps the main functionality of the python pymorphy library.
 For more information look at official pymorphy page: http://packages.python.org/pymorphy/
 
+Pymorphy on github https://github.com/kmike/pymorphy
+
 ## Building
 
     lein deps
