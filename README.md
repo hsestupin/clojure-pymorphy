@@ -3,7 +3,7 @@
 Clojure-pymorphy wraps the main functionality of the python pymorphy library.
 For more information look at official pymorphy page: http://packages.python.org/pymorphy/
 
-# Building #
+## Building
 
     lein deps
     lein jar
@@ -23,6 +23,6 @@ For full example look at <b>src/example/usage.clj</b>
 
 ## License
 
-Copyright © 2012 FIXME
+Copyright © 2012
 
 Distributed under the Eclipse Public License, the same as Clojure.
