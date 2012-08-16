@@ -5,14 +5,16 @@ For more information look at official pymorphy page: http://packages.python.org/
 
 ## Usage
 
-src/example/usage.clj
+For full example look at <b>src/example/usage.clj</b>
 
-(ns example.usage
-  (:require pymorphy))
+    (ns example.usage
+        (:require pymorphy))
 
-(pymorphy/normalize "ПОСЕЛКИ") ; returns "ПОСЕЛОК"
+    ; returns "ПОСЕЛОК"
+    (pymorphy/normalize "ПОСЕЛКИ")
 
-(pymorphy/normalize '("ПОСЕЛКИ" "ЗАКАТА" "СНЕГОПАДУ")) ; returns java.util.ArrayList object [ПОСЕЛОК, ЗАКАТ, СНЕГОПАД]
+    ; returns java.util.ArrayList object [ПОСЕЛОК, ЗАКАТ, СНЕГОПАД]
+    (pymorphy/normalize '("ПОСЕЛКИ" "ЗАКАТА" "СНЕГОПАДУ"))
 
 ## License
 
