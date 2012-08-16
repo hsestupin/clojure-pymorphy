@@ -5,7 +5,14 @@ For more information look at official pymorphy page: http://packages.python.org/
 
 ## Usage
 
-FIXME
+src/example/usage.clj
+
+(ns example.usage
+  (:require pymorphy))
+
+(pymorphy/normalize "ПОСЕЛКИ") ; returns "ПОСЕЛОК"
+
+(pymorphy/normalize '("ПОСЕЛКИ" "ЗАКАТА" "СНЕГОПАДУ")) ; returns java.util.ArrayList object [ПОСЕЛОК, ЗАКАТ, СНЕГОПАД]
 
 ## License
 

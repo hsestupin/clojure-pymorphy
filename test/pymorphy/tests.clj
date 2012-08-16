@@ -7,7 +7,7 @@
     (testing "ПОСЕЛКИ"
       (is (=
             (pymorphy/normalize "ПОСЕЛКИ")
-            "ПОСЕЛООК")))
+            "ПОСЕЛОК")))
     (testing "ГАРАЖИ"
       (is (=
             (pymorphy/normalize "ГАРАЖИ")
@@ -17,8 +17,4 @@
             (pymorphy/normalize "ГОРИЗОНТУ")
             "ГОРИЗОНТ")))))
 
-(with-test
-  (defn normalize [word]
-    ))
-
-(run-tests)
+;(run-tests)

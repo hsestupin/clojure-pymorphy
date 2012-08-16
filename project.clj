@@ -6,5 +6,4 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [jep/jep "1.0"]]
-  :repositories {"jep-repo" ~(str (.toURI (java.io.File. "jep-repo")))}
-  )
+  :repositories {"jep-repo" ~(str (.toURI (java.io.File. "jep-repo")))})

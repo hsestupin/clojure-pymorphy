@@ -3,9 +3,22 @@
 
 (def start-time (System/currentTimeMillis))
 
-;(dotimes [i 100] (println (str i " : " (normalize-word "ПОСЕЛКИ"))))
-(dotimes [i 20] (pymorphy/normalize "ПОСЕЛКИ"))
+(println (pymorphy/normalize '("ПОСЕЛКИ" "ЗАКАТА" "СНЕГОПАДУ")))
 
-(println (str "It takes " (- (System/currentTimeMillis) start-time) " millis"))
+(def words (take 1000 (repeat "ПОСЕЛКИ")))
+(def res (pymorphy/normalize words))
+(println (count res))
+(println (str "returns:" res))
+
+(println (str "For 1000 words it takes " (- (System/currentTimeMillis) start-time) " millis"))
+
+
+(def start-time (System/currentTimeMillis))
+
+(def word "ПОСЕЛКИ")
+(println (str "returns: "(pymorphy/normalize word)))
+
+(println (str "For 1 word it takes " (- (System/currentTimeMillis) start-time) " millis"))
+
 
 
