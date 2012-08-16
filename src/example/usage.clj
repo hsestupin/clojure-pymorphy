@@ -1,9 +1,10 @@
 (ns example.usage
   (:require pymorphy))
 
-(def start-time (System/currentTimeMillis))
-
 (println (pymorphy/normalize '("ПОСЕЛКИ" "ЗАКАТА" "СНЕГОПАДУ")))
+
+;; 1000 words
+(def start-time (System/currentTimeMillis))
 
 (def words (take 1000 (repeat "ПОСЕЛКИ")))
 (def res (pymorphy/normalize words))
@@ -12,7 +13,7 @@
 
 (println (str "For 1000 words it takes " (- (System/currentTimeMillis) start-time) " millis"))
 
-
+;; 1 word
 (def start-time (System/currentTimeMillis))
 
 (def word "ПОСЕЛКИ")
