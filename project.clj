@@ -1,4 +1,4 @@
-(defproject clojure-pymorphy "0.1.0-SNAPSHOT"
+(defproject clojure-pymorphy "0.1.0"
   :description "Clojure-pymorphy wraps the main functionality of the python pymorphy library.
   For more information look at official pymorphy page http://packages.python.org/pymorphy/"
   :url "https://github.com/hsestupin/clojure-pymorphy"
