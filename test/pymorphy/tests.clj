@@ -4,17 +4,25 @@
 
 (deftest normalize-word-test
   (testing "Test \"normalize-word\" function for word"
-    (testing "ПОСЕЛКИ"
+    (testing "ПоселкИ"
       (is (=
-            (pymorphy/normalize "ПОСЕЛКИ")
+            (pymorphy/normalize "ПоселкИ")
             "ПОСЕЛОК")))
-    (testing "ГАРАЖИ"
+    (testing "гаражи"
       (is (=
-            (pymorphy/normalize "ГАРАЖИ")
+            (pymorphy/normalize "гаражи")
             "ГАРАЖ")))
-    (testing "ГОРИЗОНТУ"
+    (testing "горизонТУ"
       (is (=
-            (pymorphy/normalize "ГОРИЗОНТУ")
-            "ГОРИЗОНТ")))))
+            (pymorphy/normalize "горизонТУ")
+            "ГОРИЗОНТ")))
+    (testing "'(\"ЗаГадочному\" \"Смотрителя\")"
+      (is (=
+            (pymorphy/normalize '("ЗаГадочному" "Смотрителя"))
+            (seq ["ЗАГАДОЧНЫЙ" "СМОТРИТЕЛЬ"])))))
+  (testing "JepException handling raised during Jep call"
+    (is (=
+      (pymorphy/normalize '("ASD" "ASDASD" (new Exception "ff") "   ads" "223"))
+      "ERROR"))))
 
 ;(run-tests)

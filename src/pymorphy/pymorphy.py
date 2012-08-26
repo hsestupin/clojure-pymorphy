@@ -10,10 +10,6 @@ def normalize(w):
 # For example, there are correct input cases:
 # "word"
 # "word1,word2,,,,"
-#print(input)
 
 for word in input.split(','):
     response.add(normalize(word).encode('utf-8'))
-
-#print("well normalized")
-#and here we set some data in the object we passed.

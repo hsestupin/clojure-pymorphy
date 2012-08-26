@@ -5,6 +5,8 @@
   (:require [clojure.string :as str]
     [clojure.java.io :as io]))
 
+(def jep-obj (new Jep))
+
 (defn ^File create-file [parent file]
   (let [file-path (new File parent (str file ".shelve"))]
     (if (.createNewFile file-path)
@@ -30,30 +32,42 @@
       dict-folder
       (create-dicts dict-folder))))
 
+;(def morph
+;  (let [dict-as-resource (io/resource "dicts/shelve_ru")
+;        jep (doto (new Jep)
+;              (.set "morph" (new Object))
+;              (.set "db_path" (if dict-as-resource
+;                                (.getFile dict-as-resource)
+;                                (.getAbsolutePath (get-dicts))))
+;              (.runScript (.getFile (io/resource "pymorphy/morph.py"))))]
+;    (.getValue jep "morph")))
+
 (defn jep-instance
   "Function initializes and returns instance of Jep python interpretator"
   [input script-path]
   (let [dict-as-resource (io/resource "dicts/shelve_ru")]
-    (doto (new Jep)
+    (doto jep-obj
       (.set "input"
-        (if (coll? input)
+        (str/upper-case (if (coll? input)
           (str/join "," input)
-          input))
+          input)))
       (.set "response" (new ArrayList))
+;      (.set "morph" morph)
       (.set "db_path" (if dict-as-resource
         (.getFile dict-as-resource)
         (.getAbsolutePath (get-dicts))))
       (.runScript script-path))))
 
 (defn run-jep [input script-path]
-  (let [response (.getValue (jep-instance input script-path) "response")]
+  (let [jep (jep-instance input script-path)
+        response (.getValue jep "response")]
     (if (== (count response) 1)
       (first response)
-      response)))
+      (seq response))))
 ;
 (defn normalize
   "Returns basic morphological form of the given word
-  or collection of words"
+or collection of words"
   [input]
   (let [python-tmp (File/createTempFile "tmp" ".py")
         python-script (io/resource "pymorphy/pymorphy.py")]
@@ -62,6 +76,9 @@
         (with-open [python-os (.openStream python-script)]
           (clojure.java.io/copy python-os python-tmp))
         (run-jep input (.getAbsolutePath python-tmp)))
+      (catch jep.JepException e
+        (println (str "Error for input:\n" (str/join "^" input) "\nwith message: " (.getMessage e)))
+        "ERROR")
       (finally
         (when (.exists python-tmp)
           (.delete python-tmp))))))
