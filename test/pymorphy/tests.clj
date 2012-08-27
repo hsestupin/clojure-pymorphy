@@ -19,10 +19,6 @@
     (testing "'(\"ЗаГадочному\" \"Смотрителя\")"
       (is (=
             (pymorphy/normalize '("ЗаГадочному" "Смотрителя"))
-            (seq ["ЗАГАДОЧНЫЙ" "СМОТРИТЕЛЬ"])))))
-  (testing "JepException handling raised during Jep call"
-    (is (=
-      (pymorphy/normalize '("ASD" "ASDASD" (new Exception "ff") "   ads" "223"))
-      "ERROR"))))
+            ["ЗАГАДОЧНЫЙ" "СМОТРИТЕЛЬ"])))))
 
 ;(run-tests)
