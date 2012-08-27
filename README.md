@@ -31,7 +31,7 @@ For full example look at <b>src/example/usage.clj</b>
     ; returns "ПОСЕЛОК"
     (pymorphy/normalize "ПОСЕЛКИ")
 
-    ; returns java.util.ArrayList object [ПОСЕЛОК, ЗАКАТ, СНЕГОПАД]
+    ; returns vector [ПОСЕЛОК, ЗАКАТ, СНЕГОПАД]
     (pymorphy/normalize '("ПОСЕЛКИ" "ЗАКАТА" "СНЕГОПАДУ"))
 
 ## Test
