@@ -10,11 +10,13 @@ than directory "%dict_name%_ru" (eg "shelve_ru") will be created in your clojure
 
 ## Import in your project.clj
 
-    ;; put clojure-pymorphy to the local repo
+Put clojure-pymorphy to the local repo
+
     lein install
 
-    ;; in your project.clj
-    (:dependencies [[clojure-pymorphy "0.1.0"]])
+Add lein dependency
+    
+    [clojure-pymorphy "0.1.0"]
 
 ## Building
 
