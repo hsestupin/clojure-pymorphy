@@ -11,6 +11,7 @@ than directory "%dict_name%_ru" (eg "shelve_ru") will be created in your clojure
 ## Import in your project.clj
 
 1) setup python pymorphy library and 
+
 2) setup Java Embedded Python lubrary (jep) http://sourceforge.net/projects/jepp/
 
 Put clojure-pymorphy to the local repo
