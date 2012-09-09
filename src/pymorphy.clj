@@ -68,6 +68,8 @@
   "Returns basic morphological form of the given word or collection of words.
   If input is a collection of the words function returns vector of normalized forms."
   [input]
+  (when (nil? input)
+    (throw (new IllegalArgumentException "Input word couldn't be nil")))
   (try
     (let [words (str/upper-case (if (coll? input) (str/join "," input) input))
           response (.invoke jep "normalize" (into-array String [words]))]
