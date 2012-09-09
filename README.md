@@ -18,11 +18,14 @@ than directory "%dict_name%_ru" (eg "shelve_ru") will be created in your clojure
 
     pip install jep
     
+Also look at this page http://jepp.sourceforge.net/usage.html#tomcat
+    
+
 Put clojure-pymorphy to the local repo
 
     lein install
 
-Add lein dependency
+Add lein dependency to your project
     
     [clojure-pymorphy "0.1.0"]
 
