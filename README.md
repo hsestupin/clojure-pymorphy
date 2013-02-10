@@ -1,4 +1,3 @@
-[![endorse](http://api.coderwall.com/hsestupin/endorsecount.png)](http://coderwall.com/hsestupin)
 # clojure-pymorphy
 
 Clojure-pymorphy wraps the main functionality of the python pymorphy library.
