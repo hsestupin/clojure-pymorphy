@@ -78,7 +78,7 @@
         response))
     (catch jep.JepException e
       (println "For input: " (str/join "," input))
-      (println "Shit has happened: " (.getMessage e))
+      (println "Shit had happened: " (.getMessage e))
       "ERROR")))
 
 
